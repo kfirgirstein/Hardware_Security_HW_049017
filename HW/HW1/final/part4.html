@@ -13084,7 +13084,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">random</span><span class="o">,</span><span class="nn">binascii</span><span class="o">,</span><span class="nn">AES</span><span class="o">,</span><span class="nn">jupyter_utils</span><span class="o">,</span><span class="nn">random</span>
@@ -13111,7 +13111,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plaintext</span> <span class="o">=</span> <span class="s2">&quot;From the Pope to&quot;</span>
@@ -13166,7 +13166,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;R is a Short key&quot;</span>
@@ -13213,7 +13213,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">run_aes_stages</span><span class="p">(</span><span class="n">plaintext</span><span class="p">):</span>
@@ -13271,7 +13271,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tobits</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
@@ -13308,7 +13308,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">flip_plaintext</span><span class="p">(</span><span class="n">plaintext</span><span class="p">):</span>
@@ -13336,8 +13336,8 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>The bit which was chosen to be replaced:  3
-Result: Vrom the Pope to
+<pre>The bit which was chosen to be replaced:  84
+Result: From the Pgpe to
 </pre>
 </div>
 </div>
@@ -13348,7 +13348,7 @@ Result: Vrom the Pope to
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">bitflip_spec_enc_text</span> <span class="o">=</span> <span class="n">run_aes_stages</span><span class="p">(</span><span class="n">bitflip_plaintext</span><span class="p">)</span>
@@ -13371,16 +13371,16 @@ Result: Vrom the Pope to
 
 
 <div class="output_text output_subarea ">
-<pre>[&#39;db9deebaa56a602164f8bdc338622f85&#39;,
- &#39;9c528a423cb5f2e5c010b00d206f6dea&#39;,
- &#39;3878eca21154153cd46bb3b5e6b00cd0&#39;,
- &#39;b352fce513d5fd9d31748ad62fc8b019&#39;,
- &#39;0acf78195fd16eced8aa16c973374827&#39;,
- &#39;6c53ff3cb19be3fd9d1cfd0de4c94b00&#39;,
- &#39;b15a9cee2b4699c3181f266684eca62b&#39;,
- &#39;19988fea93b177235f6cb5d8a1931276&#39;,
- &#39;b4fb375889dc333e9ca9381c121ce033&#39;,
- &#39;d4ca2fa56af86dc120c1b1ac1f952e96&#39;]</pre>
+<pre>[&#39;3689075fa56a602164f8bdc338622f85&#39;,
+ &#39;ffee369d078ebf932d3c71e030869413&#39;,
+ &#39;420575864268b0954142c48e54fdd4db&#39;,
+ &#39;f2e910056962f56de0f60ce978c6e11a&#39;,
+ &#39;cf8fb4eb8a7dc9e968d83e414287a3a0&#39;,
+ &#39;2c0f567ce17e68dafdff92ecb51b77f9&#39;,
+ &#39;2079799e7348b9b23e000eab1c980209&#39;,
+ &#39;53e34bc4e144691793d9d92bcdc2413a&#39;,
+ &#39;f0fcd54bbf775050bcde28a772b98bd9&#39;,
+ &#39;d5b91c53c536b1189b0b284d962abe56&#39;]</pre>
 </div>
 
 </div>
@@ -13391,7 +13391,7 @@ Result: Vrom the Pope to
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">calulate_diffrence</span><span class="p">(</span><span class="n">textlist</span><span class="p">,</span><span class="n">flip_textlist</span><span class="p">):</span>
@@ -13421,7 +13421,7 @@ Result: Vrom the Pope to
 
 
 <div class="output_text output_subarea ">
-<pre>[5, 69, 73, 62, 66, 70, 57, 64, 62, 76]</pre>
+<pre>[21, 61, 71, 60, 65, 69, 59, 68, 58, 65]</pre>
 </div>
 
 </div>
@@ -13432,7 +13432,7 @@ Result: Vrom the Pope to
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">table_result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">6</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">bitflip_spec_enc_text</span><span class="p">)))</span>
@@ -13450,10 +13450,10 @@ Result: Vrom the Pope to
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">table_result</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">table_result</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">table_result</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">table_result</span><span class="p">[:</span><span class="mi">5</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 <span class="n">display</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">table_result</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;Round </span><span class="si">{</span><span class="n">col</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">&quot;</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bitflip_spec_enc_text</span><span class="p">))]))</span>
 </pre></div>
 
@@ -13505,81 +13505,81 @@ Result: Vrom the Pope to
   <tbody>
     <tr>
       <th>0</th>
-      <td>16.000000</td>
-      <td>58.000000</td>
-      <td>64.000000</td>
-      <td>76.000000</td>
-      <td>65.000000</td>
-      <td>64.000000</td>
-      <td>69.0</td>
-      <td>60.000000</td>
-      <td>62.000000</td>
-      <td>47.000000</td>
+      <td>20.0</td>
+      <td>62.0</td>
+      <td>67.0</td>
+      <td>64.0</td>
+      <td>57.0</td>
+      <td>68.0</td>
+      <td>71.0</td>
+      <td>67.0</td>
+      <td>53.0</td>
+      <td>63.0</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>70.000000</td>
-      <td>66.000000</td>
-      <td>60.000000</td>
-      <td>68.000000</td>
-      <td>66.000000</td>
-      <td>68.000000</td>
-      <td>69.0</td>
-      <td>64.000000</td>
-      <td>69.000000</td>
-      <td>65.000000</td>
+      <td>21.0</td>
+      <td>66.0</td>
+      <td>56.0</td>
+      <td>67.0</td>
+      <td>57.0</td>
+      <td>73.0</td>
+      <td>58.0</td>
+      <td>70.0</td>
+      <td>64.0</td>
+      <td>65.0</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>21.000000</td>
-      <td>61.000000</td>
-      <td>71.000000</td>
-      <td>60.000000</td>
-      <td>65.000000</td>
-      <td>69.000000</td>
+      <td>15.0</td>
+      <td>65.0</td>
+      <td>48.0</td>
+      <td>60.0</td>
       <td>59.0</td>
-      <td>68.000000</td>
-      <td>58.000000</td>
-      <td>65.000000</td>
+      <td>63.0</td>
+      <td>73.0</td>
+      <td>73.0</td>
+      <td>56.0</td>
+      <td>71.0</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>65.000000</td>
-      <td>61.000000</td>
-      <td>61.000000</td>
-      <td>62.000000</td>
-      <td>68.000000</td>
-      <td>65.000000</td>
+      <td>20.0</td>
+      <td>67.0</td>
       <td>62.0</td>
-      <td>57.000000</td>
-      <td>64.000000</td>
-      <td>66.000000</td>
+      <td>58.0</td>
+      <td>56.0</td>
+      <td>65.0</td>
+      <td>64.0</td>
+      <td>67.0</td>
+      <td>64.0</td>
+      <td>54.0</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>15.000000</td>
-      <td>61.000000</td>
-      <td>69.000000</td>
-      <td>65.000000</td>
-      <td>61.000000</td>
-      <td>60.000000</td>
+      <td>68.0</td>
+      <td>61.0</td>
+      <td>64.0</td>
       <td>71.0</td>
-      <td>56.000000</td>
-      <td>72.000000</td>
-      <td>71.000000</td>
+      <td>53.0</td>
+      <td>67.0</td>
+      <td>60.0</td>
+      <td>61.0</td>
+      <td>69.0</td>
+      <td>62.0</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>31.166667</td>
-      <td>51.166667</td>
-      <td>54.166667</td>
-      <td>55.166667</td>
-      <td>54.166667</td>
-      <td>54.333333</td>
-      <td>55.0</td>
-      <td>50.833333</td>
-      <td>54.166667</td>
-      <td>52.333333</td>
+      <td>28.8</td>
+      <td>64.2</td>
+      <td>59.4</td>
+      <td>64.0</td>
+      <td>56.4</td>
+      <td>67.2</td>
+      <td>65.2</td>
+      <td>67.6</td>
+      <td>61.2</td>
+      <td>63.0</td>
     </tr>
   </tbody>
 </table>

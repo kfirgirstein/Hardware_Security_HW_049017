@@ -13084,7 +13084,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">random</span><span class="o">,</span><span class="nn">binascii</span><span class="o">,</span><span class="nn">AES</span><span class="o">,</span><span class="nn">jupyter_utils</span><span class="o">,</span><span class="nn">random</span>
@@ -13111,7 +13111,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plaintext</span> <span class="o">=</span> <span class="s2">&quot;From the Pope to&quot;</span>
@@ -13157,7 +13157,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">tobits</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
@@ -13211,8 +13211,8 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>The bit which was chosen to be replaced:  73
-Result: From the ope to
+<pre>The bit which was chosen to be replaced:  110
+Result: From the Pope&#34;to
 </pre>
 </div>
 </div>
@@ -13232,7 +13232,7 @@ Result: From the ope to
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;R is a Short key&quot;</span>
@@ -13267,12 +13267,12 @@ Result: From the ope to
 <pre>&#39;R is a Short key&#39;:
  0x5220697320612053686f7274206b6579
 0st key wasn&#39;t flipped
-1st key was flipped at place 22
-2st key was flipped at place 24
-3st key was flipped at place 1
-4st key was flipped at place 38
+1st key was flipped at place 76
+2st key was flipped at place 58
+3st key was flipped at place 31
+4st key was flipped at place 55
 5st key was flipped at place 34
-6st key was flipped at place 83
+6st key was flipped at place 101
 </pre>
 </div>
 </div>
@@ -13284,10 +13284,10 @@ Result: From the ope to
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Question-4:">Question 4:<a class="anchor-link" href="#Question-4:">&#182;</a></h2><ol>
+<h2 id="Question-6:">Question 6:<a class="anchor-link" href="#Question-6:">&#182;</a></h2><ol>
 <li>Run the AES algorithm, and save the intermediate results after each round (including the final result)</li>
-<li>Randomly select a bit in the login message and change it from 0 -&gt; 1 or 1-&gt; 0 accordingly Repeat (1) and calculate how many bits changed their value as a result of the change of the single bit in each round, and the encrypted message (relative to the same situation when no errors were injected)</li>
-<li>Repeat the experiment 5 times when each time you change one bit in relation to the message in (1) at the end of the runs, present a table</li>
+<li>Randomly select a bit in the key and change it from 0 -&gt; 1 or 1-&gt; 0 accordingly Repeat (1) and calculate how many bits changed their value as a result of the change of the single bit in each round, and the encrypted message (relative to the same situation when no errors were injected)</li>
+<li>Repeat the experiment 5 or 6  times when each time you change one bit in relation to the message in (1) at the end of the runs, present a table</li>
 </ol>
 
 </div>
@@ -13295,7 +13295,7 @@ Result: From the ope to
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">run_aes_stages</span><span class="p">(</span><span class="n">plaintext</span><span class="p">,</span> <span class="n">key_num</span><span class="p">):</span>
@@ -13345,7 +13345,7 @@ Result: From the ope to
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Displaying output with another key&quot;</span><span class="p">)</span>
@@ -13380,16 +13380,16 @@ Result: From the ope to
 
 
 <div class="output_text output_subarea ">
-<pre>[&#39;cb95e4a2a56a6221f9449e5e38622d85&#39;,
- &#39;ba7bccc2d19f60f52e15ea39b0637708&#39;,
- &#39;7545c8c712f5c310fa3a402b658c9bc9&#39;,
- &#39;d842868c89be9989be4743a18c092395&#39;,
- &#39;b8cc191c068ad22927f464b99b0f3cb1&#39;,
- &#39;66aaa1522effe103b59e0f393044c350&#39;,
- &#39;ae11f834dbdde114823a525c7ce617a5&#39;,
- &#39;3a16defe27549cf67e3c099414e7c686&#39;,
- &#39;5a05f599f31a6fb036d3754ff2e8f3dc&#39;,
- &#39;2a53fc19c0f081bcfb7b84f95f4c458e&#39;]</pre>
+<pre>[&#39;cb95e6a28faf8fce64f0bdc3386a2f85&#39;,
+ &#39;150257c8078f0330a0d4d5ef4c79443d&#39;,
+ &#39;cb3fe5e533c8a0b4e9b7c10da2cd0230&#39;,
+ &#39;cb8a3334f040f4dc3bc1ab619e270baa&#39;,
+ &#39;fe8119a88e15aeb86cf62b573f96ceaf&#39;,
+ &#39;1b41fa229eec4587291a80e4202ff4ff&#39;,
+ &#39;b3260284807cf48689f402d1504431f0&#39;,
+ &#39;63a613f7f63a9f15a3c8d6ba71f3a960&#39;,
+ &#39;f12adadf880b0bb65bcefaeb36d8eb64&#39;,
+ &#39;fe8480730fa0e0358e4ab2d29a7f08e3&#39;]</pre>
 </div>
 
 </div>
@@ -13400,7 +13400,7 @@ Result: From the ope to
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">calulate_diffrence</span><span class="p">(</span><span class="n">textlist</span><span class="p">,</span><span class="n">flip_textlist</span><span class="p">):</span>
@@ -13430,7 +13430,7 @@ Result: From the ope to
 
 
 <div class="output_text output_subarea ">
-<pre>[21, 62, 62, 72, 60, 65, 65, 63, 57, 69]</pre>
+<pre>[23, 75, 68, 54, 63, 68, 60, 58, 60, 63]</pre>
 </div>
 
 </div>
@@ -13441,7 +13441,7 @@ Result: From the ope to
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">table_result</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">7</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">bitflip_spec_enc_text</span><span class="p">)))</span>
@@ -13458,7 +13458,7 @@ Result: From the ope to
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">table_result</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">table_result</span><span class="p">[:</span><span class="mi">6</span><span class="p">],</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
@@ -13513,55 +13513,55 @@ Result: From the ope to
   <tbody>
     <tr>
       <th>0</th>
-      <td>21.000000</td>
-      <td>62.000000</td>
-      <td>62.000000</td>
-      <td>72.000000</td>
-      <td>60.0</td>
-      <td>65.0</td>
-      <td>65.000000</td>
+      <td>23.000000</td>
+      <td>75.000000</td>
+      <td>68.000000</td>
+      <td>54.000000</td>
+      <td>63.0</td>
+      <td>68.0</td>
+      <td>60.000000</td>
+      <td>58.0</td>
+      <td>60.000000</td>
       <td>63.000000</td>
-      <td>57.000000</td>
-      <td>69.000000</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>55.000000</td>
-      <td>62.000000</td>
-      <td>65.000000</td>
-      <td>62.000000</td>
-      <td>60.0</td>
-      <td>55.0</td>
+      <td>13.000000</td>
       <td>68.000000</td>
-      <td>70.000000</td>
-      <td>56.000000</td>
-      <td>74.000000</td>
+      <td>58.000000</td>
+      <td>58.000000</td>
+      <td>65.0</td>
+      <td>54.0</td>
+      <td>63.000000</td>
+      <td>61.0</td>
+      <td>69.000000</td>
+      <td>59.000000</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>25.000000</td>
-      <td>65.000000</td>
-      <td>64.000000</td>
-      <td>63.000000</td>
-      <td>63.0</td>
+      <td>22.000000</td>
+      <td>62.000000</td>
+      <td>62.000000</td>
+      <td>67.000000</td>
       <td>66.0</td>
-      <td>55.000000</td>
-      <td>71.000000</td>
-      <td>63.000000</td>
-      <td>60.000000</td>
+      <td>63.0</td>
+      <td>69.000000</td>
+      <td>61.0</td>
+      <td>61.000000</td>
+      <td>66.000000</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>13.000000</td>
+      <td>21.000000</td>
+      <td>66.000000</td>
+      <td>65.000000</td>
       <td>63.000000</td>
-      <td>56.000000</td>
-      <td>73.000000</td>
-      <td>58.0</td>
       <td>69.0</td>
-      <td>60.000000</td>
-      <td>70.000000</td>
-      <td>64.000000</td>
-      <td>71.000000</td>
+      <td>67.0</td>
+      <td>66.000000</td>
+      <td>60.0</td>
+      <td>65.000000</td>
+      <td>58.000000</td>
     </tr>
     <tr>
       <th>4</th>
@@ -13572,35 +13572,35 @@ Result: From the ope to
       <td>68.0</td>
       <td>60.0</td>
       <td>57.000000</td>
-      <td>64.000000</td>
+      <td>64.0</td>
       <td>68.000000</td>
       <td>61.000000</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>21.000000</td>
-      <td>67.000000</td>
-      <td>68.000000</td>
-      <td>59.000000</td>
-      <td>66.0</td>
-      <td>66.0</td>
-      <td>69.000000</td>
+      <td>27.000000</td>
       <td>60.000000</td>
-      <td>57.000000</td>
-      <td>65.000000</td>
+      <td>54.000000</td>
+      <td>67.000000</td>
+      <td>56.0</td>
+      <td>69.0</td>
+      <td>50.000000</td>
+      <td>59.0</td>
+      <td>66.000000</td>
+      <td>61.000000</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>25.666667</td>
-      <td>63.666667</td>
-      <td>62.166667</td>
-      <td>66.666667</td>
-      <td>62.5</td>
-      <td>63.5</td>
-      <td>62.333333</td>
-      <td>66.333333</td>
+      <td>20.833333</td>
+      <td>65.666667</td>
       <td>60.833333</td>
-      <td>66.666667</td>
+      <td>63.333333</td>
+      <td>64.5</td>
+      <td>63.5</td>
+      <td>60.833333</td>
+      <td>60.5</td>
+      <td>64.833333</td>
+      <td>61.333333</td>
     </tr>
   </tbody>
 </table>

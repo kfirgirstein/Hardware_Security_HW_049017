@@ -13084,7 +13084,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span><span class="o">,</span> <span class="nn">random</span><span class="o">,</span><span class="nn">binascii</span><span class="o">,</span><span class="nn">AES</span><span class="o">,</span><span class="nn">jupyter_utils</span><span class="o">,</span><span class="nn">random</span>
@@ -13111,7 +13111,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">plaintext</span> <span class="o">=</span> <span class="s2">&quot;From the Pope to&quot;</span>
@@ -13166,7 +13166,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;R is a Short key&quot;</span>
@@ -13202,25 +13202,27 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h5 id="Question-5:">Question 5:<a class="anchor-link" href="#Question-5:">&#182;</a></h5>
+<h1 id="Question-5:">Question 5:<a class="anchor-link" href="#Question-5:">&#182;</a></h1><p>Repeat question 4, but this time change only the first bit in the 9th house
+Make the change 11 times, the first time change the country in plain text, the next 10 times run all the AES algorithms, but the first time change the confidence in the first round, the second time, the second round and so on.
+In each cell indicate how many bits changed their values, in each layer, together to the normal state
+ </p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">spec_enc_text</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">12</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>  
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">spec_enc_text</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">11</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>  
     <span class="n">ciper</span> <span class="o">=</span> <span class="n">aes_lib</span><span class="o">.</span><span class="n">encrypt_by_stage</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">plaintext</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span><span class="p">(),</span><span class="n">base</span><span class="o">=</span><span class="mi">16</span><span class="p">),</span> <span class="n">injection_itr</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
     <span class="n">spec_enc_text</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">ciper</span>
 
+<span class="n">spec_enc_diff</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">10</span>
 
-<span class="n">spec_enc_diff</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;&quot;</span><span class="p">]</span><span class="o">*</span><span class="mi">11</span>
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">11</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">):</span>
     <span class="n">spec_enc_diff</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nb">bin</span><span class="p">(</span><span class="n">spec_enc_text</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">^</span> <span class="n">spec_enc_text</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">spec_enc_text</span><span class="p">[</span><span class="mi">0</span><span class="p">]))]</span>
 
 <span class="n">display</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">spec_enc_diff</span><span class="p">))</span>
@@ -13291,20 +13293,7 @@ div#notebook {
     </tr>
     <tr>
       <th>1</th>
-      <td>18</td>
-      <td>57</td>
-      <td>57</td>
-      <td>61</td>
-      <td>61</td>
-      <td>58</td>
-      <td>67</td>
-      <td>65</td>
-      <td>71</td>
-      <td>59</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>0</td>
+      <td>1</td>
       <td>11</td>
       <td>57</td>
       <td>66</td>
@@ -13316,9 +13305,9 @@ div#notebook {
       <td>67</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>2</th>
       <td>0</td>
-      <td>0</td>
+      <td>1</td>
       <td>19</td>
       <td>66</td>
       <td>59</td>
@@ -13329,10 +13318,10 @@ div#notebook {
       <td>65</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>3</th>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
+      <td>1</td>
       <td>23</td>
       <td>79</td>
       <td>69</td>
@@ -13342,11 +13331,11 @@ div#notebook {
       <td>65</td>
     </tr>
     <tr>
-      <th>5</th>
+      <th>4</th>
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>0</td>
+      <td>1</td>
       <td>16</td>
       <td>67</td>
       <td>68</td>
@@ -13355,17 +13344,30 @@ div#notebook {
       <td>57</td>
     </tr>
     <tr>
+      <th>5</th>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>17</td>
+      <td>54</td>
+      <td>60</td>
+      <td>64</td>
+      <td>76</td>
+    </tr>
+    <tr>
       <th>6</th>
       <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>17</td>
-      <td>54</td>
-      <td>60</td>
-      <td>64</td>
-      <td>76</td>
+      <td>1</td>
+      <td>18</td>
+      <td>69</td>
+      <td>70</td>
+      <td>62</td>
     </tr>
     <tr>
       <th>7</th>
@@ -13375,10 +13377,10 @@ div#notebook {
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>18</td>
-      <td>69</td>
-      <td>70</td>
-      <td>62</td>
+      <td>1</td>
+      <td>22</td>
+      <td>61</td>
+      <td>66</td>
     </tr>
     <tr>
       <th>8</th>
@@ -13389,9 +13391,9 @@ div#notebook {
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>22</td>
-      <td>61</td>
-      <td>66</td>
+      <td>1</td>
+      <td>10</td>
+      <td>18</td>
     </tr>
     <tr>
       <th>9</th>
@@ -13403,20 +13405,7 @@ div#notebook {
       <td>0</td>
       <td>0</td>
       <td>0</td>
-      <td>10</td>
-      <td>18</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>1</td>
       <td>4</td>
     </tr>
   </tbody>
