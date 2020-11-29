@@ -91,8 +91,16 @@ def matrix2text(matrix):
 
 
 class AES:
-    def __init__(self, master_key):
+    def __init__(self, master_key, customize=r""):
         self.change_key(master_key)
+        if (customize == r"random_sbox"):
+            import random
+            Sbox = list(range(256))
+            random.shuffle(Sbox)
+            Sbox = tuple(Sbox)
+        elif (customize == r"sorted_sbox"):
+            Sbox = list(range(256))
+            Sbox = tuple(Sbox)
 
     def change_key(self, master_key):
         self.round_keys = text2matrix(master_key)
@@ -130,17 +138,22 @@ class AES:
 
         return matrix2text(self.plain_state)
     
-    def encrypt_by_stage(self, plaintext):
+    def encrypt_by_stage(self, plaintext, injection_itr=-1):
         
         res_list = []
         self.plain_state = text2matrix(plaintext)
+        
+        if (injection_itr==0):
+            self.plain_state[2][0] = self.plain_state[2][0]^1
 
         self.__add_round_key(self.plain_state, self.round_keys[:4])
 
         for i in range(1, 10):
             self.__round_encrypt(self.plain_state, self.round_keys[4 * i : 4 * (i + 1)])
+            if (injection_itr==i):
+                self.plain_state[2][0] = self.plain_state[2][0]^1
             res_list.append(matrix2text(self.plain_state))
-
+        
         self.__sub_bytes(self.plain_state)
         self.__shift_rows(self.plain_state)
         self.__add_round_key(self.plain_state, self.round_keys[40:])
