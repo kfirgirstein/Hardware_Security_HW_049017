@@ -154,6 +154,7 @@ class AES:
                 self.plain_state[2][0] = self.plain_state[2][0]^1
             res_list.append(matrix2text(self.plain_state))
         
+
         self.__sub_bytes(self.plain_state)
         self.__shift_rows(self.plain_state)
         self.__add_round_key(self.plain_state, self.round_keys[40:])
