@@ -1,0 +1,134 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Feb 21 13:47:48 2019
+
+@author: Prof.D Mukhopadhyay
+"""
+
+import csv
+import math
+import numpy as np
+import matplotlib.pyplot as plt
+
+wstart = 10
+wstop = 1999
+
+wlen = wstop-wstart
+
+InvSbox = (
+    0x52, 0x09, 0x6A, 0xD5, 0x30, 0x36, 0xA5, 0x38, 0xBF, 0x40, 0xA3, 0x9E, 0x81, 0xF3, 0xD7, 0xFB,
+    0x7C, 0xE3, 0x39, 0x82, 0x9B, 0x2F, 0xFF, 0x87, 0x34, 0x8E, 0x43, 0x44, 0xC4, 0xDE, 0xE9, 0xCB,
+    0x54, 0x7B, 0x94, 0x32, 0xA6, 0xC2, 0x23, 0x3D, 0xEE, 0x4C, 0x95, 0x0B, 0x42, 0xFA, 0xC3, 0x4E,
+    0x08, 0x2E, 0xA1, 0x66, 0x28, 0xD9, 0x24, 0xB2, 0x76, 0x5B, 0xA2, 0x49, 0x6D, 0x8B, 0xD1, 0x25,
+    0x72, 0xF8, 0xF6, 0x64, 0x86, 0x68, 0x98, 0x16, 0xD4, 0xA4, 0x5C, 0xCC, 0x5D, 0x65, 0xB6, 0x92,
+    0x6C, 0x70, 0x48, 0x50, 0xFD, 0xED, 0xB9, 0xDA, 0x5E, 0x15, 0x46, 0x57, 0xA7, 0x8D, 0x9D, 0x84,
+    0x90, 0xD8, 0xAB, 0x00, 0x8C, 0xBC, 0xD3, 0x0A, 0xF7, 0xE4, 0x58, 0x05, 0xB8, 0xB3, 0x45, 0x06,
+    0xD0, 0x2C, 0x1E, 0x8F, 0xCA, 0x3F, 0x0F, 0x02, 0xC1, 0xAF, 0xBD, 0x03, 0x01, 0x13, 0x8A, 0x6B,
+    0x3A, 0x91, 0x11, 0x41, 0x4F, 0x67, 0xDC, 0xEA, 0x97, 0xF2, 0xCF, 0xCE, 0xF0, 0xB4, 0xE6, 0x73,
+    0x96, 0xAC, 0x74, 0x22, 0xE7, 0xAD, 0x35, 0x85, 0xE2, 0xF9, 0x37, 0xE8, 0x1C, 0x75, 0xDF, 0x6E,
+    0x47, 0xF1, 0x1A, 0x71, 0x1D, 0x29, 0xC5, 0x89, 0x6F, 0xB7, 0x62, 0x0E, 0xAA, 0x18, 0xBE, 0x1B,
+    0xFC, 0x56, 0x3E, 0x4B, 0xC6, 0xD2, 0x79, 0x20, 0x9A, 0xDB, 0xC0, 0xFE, 0x78, 0xCD, 0x5A, 0xF4,
+    0x1F, 0xDD, 0xA8, 0x33, 0x88, 0x07, 0xC7, 0x31, 0xB1, 0x12, 0x10, 0x59, 0x27, 0x80, 0xEC, 0x5F,
+    0x60, 0x51, 0x7F, 0xA9, 0x19, 0xB5, 0x4A, 0x0D, 0x2D, 0xE5, 0x7A, 0x9F, 0x93, 0xC9, 0x9C, 0xEF,
+    0xA0, 0xE0, 0x3B, 0x4D, 0xAE, 0x2A, 0xF5, 0xB0, 0xC8, 0xEB, 0xBB, 0x3C, 0x83, 0x53, 0x99, 0x61,
+    0x17, 0x2B, 0x04, 0x7E, 0xBA, 0x77, 0xD6, 0x26, 0xE1, 0x69, 0x14, 0x63, 0x55, 0x21, 0x0C, 0x7D,
+)
+
+myfile = "_DATA1_keyset_9_attack.csv"
+
+def _variance(a):
+    N = len(a)
+    res = math.sqrt(N * np.inner(a, a) - np.sum(a)**2)
+    return res
+
+def _covariance(a, b):
+    N = len(a)
+    res = N * np.inner(a, b) - np.sum(a) * np.sum(b)
+    return res
+
+def _correlation(a,b):
+    res = _covariance(a, b) / (_variance(a) * _variance(b))
+    return res
+
+def HammingWeight(value):
+    hammingWeight = 0
+    while value > 0:
+        hammingWeight += value % 2
+        value = value / 2
+    return hammingWeight
+
+MASK = 2**8 - 1 # Least significant byte
+number_of_samples = 7
+samples = np.append(np.append(wstart, np.sort(np.random.randint(wstart+1, wstop-1, number_of_samples-2))), wstop)
+correlation_arr = np.zeros((256,number_of_samples),dtype='float')
+number_of_traces_list = [3,10,50,100,500,1000,2000]
+
+print("Chosen samples: " + str(samples))
+print("")
+
+for number_of_traces in number_of_traces_list:
+    print("Number of traces: " + str(number_of_traces))
+    for kb in range(0,256,1):     
+            print "Processing: "+hex(kb)
+            dofmean=np.zeros(wlen,dtype='float')
+            H = np.zeros(number_of_traces)
+            W = np.zeros([number_of_traces, number_of_samples])
+            correlation = np.zeros(number_of_samples)
+            with open(myfile) as csv_file:
+                csv_reader = csv.reader(csv_file, delimiter=',')
+                for idx, row in enumerate(csv_reader):
+                    if idx==number_of_traces: break
+                    ct = int(row[1],16)
+                    ct_temp=ct & MASK
+                    
+                    BIT_MASK = 2**0
+                    r9_temp = InvSbox[ct_temp ^ kb]
+                    
+                    H[idx] = HammingWeight(r9_temp)
+                    W[idx][:] = np.array(row)[samples]
+                    
+            for jdx in range(number_of_samples):
+                correlation[jdx] = _correlation(W[:,jdx], H)
+            
+            
+            correlation_arr[kb] = np.abs(correlation)
+            print np.max(correlation)
+    
+    ###############################################################################
+    
+    fig, ax1 = plt.subplots()
+    maxval=0
+    correct_key = float("nan")
+    for i in range(256):
+        row = correlation_arr[i]
+        tp = range(len(row))
+        if(maxval<max(row)):
+            maxval=max(row)
+            correct_key=i
+            correct_row=row
+    
+    print ("correct_key_byte=" + str(correct_key))
+    
+    for i in range(256):
+        row=correlation_arr[i]
+        tp=range(len(row))
+        if (i==correct_key):
+            plt.plot(range(len(correct_row)),correct_row , 'r', linewidth=0.2,label='Correct Key Byte')
+        else:
+            plt.plot(tp, row, 'k', linewidth=0.2)
+    
+    
+    plt.xticks(tp, samples)
+    
+    print ("")
+    
+    #tp = range(len(dofmean_correct))
+    #plt.plot(tp, dofmean_correct, 'r', linewidth=0.2,label='Correct Key Byte')
+    ax1.legend()
+    plt.locator_params(axis='y', nbins=5)
+    plt.title('Correlation Plot')
+    plt.xlabel('Sample Points')
+    plt.ylabel('Correlation')
+    plt.savefig("CPA_AllKeyByte_N" + str(number_of_traces) + ".png",dpi=1200,bbox_inches='tight')
+    #plt.show()
+    ###############################################################################
